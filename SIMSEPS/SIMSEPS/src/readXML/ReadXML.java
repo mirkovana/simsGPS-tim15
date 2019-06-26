@@ -150,9 +150,11 @@ public class ReadXML {
 		bw.write(dataXML);
 		bw.close();
 	}
-	public void openXML() {
+	public Document openXML() {
 		XStream xstream1 = new XStream();
 		Object readObject = xstream1.fromXML(new File("./NasXML.xml"));
-		System.out.println(readObject);
+		//System.out.println(readObject);
+		Document doc = (Document) readObject;
+		return doc;
 	}
 }
