@@ -87,7 +87,7 @@
       </Property>
       <Property model="STATE_SEMANTIC">
         <EnumValue>SaveEnabled</EnumValue>
-        <EnumValue>Submited</EnumValue>
+        <EnumValue>Submitted</EnumValue>
 		<EnumValue>Published</EnumValue>
       </Property>
       <Property model="STATE_TRANSITIONS">

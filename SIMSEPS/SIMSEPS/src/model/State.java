@@ -8,25 +8,45 @@ package model;
 
 import java.util.*;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
+import com.thoughtworks.xstream.annotations.XStreamImplicit;
+
 import enumType.Semantika;
 
-/** @pdOid 6d1b6a96-9edd-40f8-846b-46878c46e2f7 */
+//@XStreamAlias("State")
 public class State {
-   /** @pdOid cd8af41f-ac1d-4b5a-9d22-eaace4dbdc24 */
+   //@XStreamAlias("entityId")
+   //@XStreamAsAttribute
+   private String id;
+   //@XStreamAlias("DISPLAY_NAME")
+   private String name;
+   //@XStreamImplicit(itemFieldName = "STATE_SEMANTIC")
    private ArrayList<Semantika> semantike;
    
-   /** @pdRoleInfo migr=no name=Document assc=association11 mult=0..1 */
    public Document document;
-   /** @pdRoleInfo migr=no name=Transition assc=association12 coll=java.util.List impl=java.util.ArrayList mult=0..* type=Composition */
-   public java.util.List<TransitionState> transitions;
-   /** @pdRoleInfo migr=no name=Field assc=association7 coll=java.util.List impl=java.util.ArrayList mult=0..* */
-   public java.util.List<Field> mandatoryFields;
-   /** @pdRoleInfo migr=no name=Field assc=association8 coll=java.util.List impl=java.util.ArrayList mult=0..* */
-   public java.util.List<Field> hiddenFields;
-   /** @pdRoleInfo migr=no name=Field assc=association9 coll=java.util.List impl=java.util.ArrayList mult=0..* */
-   public java.util.List<Field> denyModifyFields;
    
-   /** @pdOid ee5def9e-9700-4a0a-a1df-0239be542221 */
+   //@XStreamImplicit(itemFieldName = "Transitions")
+   public java.util.ArrayList<TransitionState> transitions = new ArrayList<>();
+   //@XStreamImplicit(itemFieldName = "STATE_MANDATORY_FIELDS")
+   public java.util.ArrayList<Field> mandatoryFields = new ArrayList<>();
+   //@XStreamImplicit(itemFieldName = "STATE_HIDE_FIELDS")
+   public java.util.ArrayList<Field> hiddenFields = new ArrayList<>();
+   //@XStreamImplicit(itemFieldName = "STATE_DENY_MODIFYING_FIELDS")
+   public java.util.ArrayList<Field> denyModifyFields = new ArrayList<>();
+   
+   public State(String id, String name, ArrayList<Semantika> semantike,
+		   ArrayList<Field> mandatoryFields, ArrayList<Field> hiddenFields, ArrayList<Field> denyModifyFields) {
+	super();
+	this.id = id;
+	this.name = name;
+	this.semantike = semantike;
+	this.mandatoryFields = mandatoryFields;
+	this.hiddenFields = hiddenFields;
+	this.denyModifyFields = denyModifyFields;
+}
+
+/** @pdOid ee5def9e-9700-4a0a-a1df-0239be542221 */
    public void entry() {
       // TODO: implement
    }

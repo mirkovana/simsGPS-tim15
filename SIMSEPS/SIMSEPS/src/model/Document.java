@@ -9,24 +9,38 @@ package model;
 import java.util.*;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamImplicit;
 
-@XStreamAlias("DATA")
+//@XStreamAlias("Data")
 public class Document {
-   /** @pdOid e8b38823-4baf-4fe9-8f36-fdcb65113f26 */
-   private String name;
-   /** @pdOid 7247d465-077f-44f2-8681-5b78acfc93ce */
+   //@XStreamImplicit(itemFieldName = "state")
+   public java.util.List<State> states = new ArrayList<>();
+   
+   //@XStreamImplicit(itemFieldName = "transition")
+   public java.util.List<TransitionState> transitions = new ArrayList<>();
+   
+   private String name = "AccessPermit";
    private boolean transitionExists;
-   /** @pdOid d32a2d8d-fbdb-4743-91ce-8d0cffb52888 */
    private boolean mandatoryFilled;
    
-   /** @pdRoleInfo migr=no name=Action assc=association4 coll=java.util.List impl=java.util.ArrayList mult=0..* */
-   public java.util.List<Action> actions;
-   /** @pdRoleInfo migr=no name=Field assc=association18 coll=java.util.List impl=java.util.ArrayList mult=0..* */
-   public java.util.List<Field> fields;
-   /** @pdRoleInfo migr=no name=State assc=association11 mult=1..1 side=A */
+   public java.util.List<Action> actions = new ArrayList<>();
+   public java.util.List<Field> fields = new ArrayList<>();
    public State state;
    
-   /** @param state
+   public Document(List<State> states, List<TransitionState> transitions, String name, boolean transitionExists,
+		boolean mandatoryFilled, List<Action> actions, List<Field> fields, State state) {
+	   super();
+	   this.states = states;
+	   this.transitions = transitions;
+	   this.name = name;
+	   this.transitionExists = transitionExists;
+	   this.mandatoryFilled = mandatoryFilled;
+	   this.actions = actions;
+	   this.fields = fields;
+	   this.state = state;
+   }
+
+/** @param state
     * @pdOid b7b81ce6-daac-4d10-a6d9-705b63b3969e */
    public void changeState(State state) {
       // TODO: implement

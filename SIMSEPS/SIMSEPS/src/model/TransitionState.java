@@ -8,18 +8,31 @@ package model;
 
 import java.util.*;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
+
 import enumType.Semantika;
 
-/** @pdOid 08630c32-6b67-4042-83b9-b76a82d59b55 */
+//@XStreamAlias("Transition")
 public class TransitionState {
-   /** @pdOid 8e9d81b4-64cd-4633-a87e-59add3094133 */
+   //@XStreamAlias("entityId")
+   //@XStreamAsAttribute
+   private String id;
+   //@XStreamAlias("LIFECYCLE_NAME")
    private String label;
-   /** @pdOid cc2c8ecc-54a5-4d44-bcce-0ac1ffca1d56 */
+  
    private Semantika semantika;
    
-   /** @pdRoleInfo migr=no name=State assc=association13 mult=1..1 */
+   //@XStreamAlias("TRANSITION_ON_FAIL")
    public State fromState;
-   /** @pdRoleInfo migr=no name=State assc=association14 mult=1..1 */
+   //@XStreamAlias("TRANSITION_ON_SUCCEED")
    public State toState;
-
+   public TransitionState(String id, String label, Semantika semantika, State fromState, State toState) {
+	   super();
+	   this.id = id;
+	   this.label = label;
+	   this.semantika = semantika;
+	   this.fromState = fromState;
+	   this.toState = toState;
+   } 
 }

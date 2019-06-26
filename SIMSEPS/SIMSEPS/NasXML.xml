@@ -1,0 +1,226 @@
+<model.Document>
+  <states>
+    <model.State>
+      <id>1</id>
+      <name>Init</name>
+      <semantike>
+        <enumType.Semantika>init</enumType.Semantika>
+        <enumType.Semantika>saveEnabled</enumType.Semantika>
+        <enumType.Semantika>deleteEnabled</enumType.Semantika>
+      </semantike>
+      <transitions>
+        <model.TransitionState>
+          <id>1</id>
+          <label>Init to Submit</label>
+          <semantika>submitted</semantika>
+          <fromState reference="../../.."/>
+          <toState>
+            <id>2</id>
+            <name>Submitted</name>
+            <semantike>
+              <enumType.Semantika>saveEnabled</enumType.Semantika>
+              <enumType.Semantika>submitted</enumType.Semantika>
+              <enumType.Semantika>published</enumType.Semantika>
+            </semantike>
+            <transitions>
+              <model.TransitionState>
+                <id>2</id>
+                <label>Submit to Publish</label>
+                <semantika>published</semantika>
+                <fromState reference="../../.."/>
+                <toState>
+                  <id>3</id>
+                  <name>Published</name>
+                  <semantike>
+                    <enumType.Semantika>saveEnabled</enumType.Semantika>
+                    <enumType.Semantika>published</enumType.Semantika>
+                    <enumType.Semantika>finall</enumType.Semantika>
+                  </semantike>
+                  <transitions>
+                    <model.TransitionState>
+                      <id>3</id>
+                      <label>Publish to Finish</label>
+                      <semantika>finall</semantika>
+                      <fromState reference="../../.."/>
+                      <toState>
+                        <id>4</id>
+                        <name>Final</name>
+                        <semantike>
+                          <enumType.Semantika>saveEnabled</enumType.Semantika>
+                          <enumType.Semantika>finall</enumType.Semantika>
+                        </semantike>
+                        <transitions>
+                          <null/>
+                        </transitions>
+                        <mandatoryFields>
+                          <model.Field>
+                            <name>Equipment</name>
+                            <label>Field8</label>
+                            <data> </data>
+                            <type> </type>
+                          </model.Field>
+                          <model.Field>
+                            <name>Points</name>
+                            <label>Field9</label>
+                            <data> </data>
+                            <type> </type>
+                          </model.Field>
+                          <model.Field>
+                            <name>Answers</name>
+                            <label>Field4</label>
+                            <data> </data>
+                            <type> </type>
+                          </model.Field>
+                        </mandatoryFields>
+                        <hiddenFields>
+                          <model.Field>
+                            <name>PrevState</name>
+                            <label>Field6</label>
+                            <data> </data>
+                            <type> </type>
+                          </model.Field>
+                          <model.Field>
+                            <name>DenyingReason</name>
+                            <label>Field7</label>
+                            <data> </data>
+                            <type> </type>
+                          </model.Field>
+                        </hiddenFields>
+                        <denyModifyFields>
+                          <model.Field>
+                            <name>Status</name>
+                            <label>Field1</label>
+                            <data> </data>
+                            <type> </type>
+                          </model.Field>
+                          <model.Field>
+                            <name>Name</name>
+                            <label>Field2</label>
+                            <data> </data>
+                            <type> </type>
+                          </model.Field>
+                          <model.Field>
+                            <name>DateTime</name>
+                            <label>Field3</label>
+                            <data> </data>
+                            <type> </type>
+                          </model.Field>
+                          <model.Field>
+                            <name>PhoneNo</name>
+                            <label>Field10</label>
+                            <data> </data>
+                            <type> </type>
+                          </model.Field>
+                        </denyModifyFields>
+                      </toState>
+                    </model.TransitionState>
+                  </transitions>
+                  <mandatoryFields>
+                    <model.Field reference="../../transitions/model.TransitionState/toState/mandatoryFields/model.Field"/>
+                    <model.Field reference="../../transitions/model.TransitionState/toState/mandatoryFields/model.Field[2]"/>
+                  </mandatoryFields>
+                  <hiddenFields>
+                    <model.Field reference="../../transitions/model.TransitionState/toState/hiddenFields/model.Field"/>
+                    <model.Field reference="../../transitions/model.TransitionState/toState/hiddenFields/model.Field[2]"/>
+                  </hiddenFields>
+                  <denyModifyFields>
+                    <model.Field reference="../../transitions/model.TransitionState/toState/denyModifyFields/model.Field"/>
+                    <model.Field reference="../../transitions/model.TransitionState/toState/denyModifyFields/model.Field[2]"/>
+                    <model.Field reference="../../transitions/model.TransitionState/toState/denyModifyFields/model.Field[3]"/>
+                    <model.Field reference="../../transitions/model.TransitionState/toState/mandatoryFields/model.Field[2]"/>
+                  </denyModifyFields>
+                </toState>
+              </model.TransitionState>
+            </transitions>
+            <mandatoryFields>
+              <model.Field reference="../../transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/mandatoryFields/model.Field"/>
+            </mandatoryFields>
+            <hiddenFields>
+              <model.Field reference="../../transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/denyModifyFields/model.Field[2]"/>
+              <model.Field reference="../../transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/denyModifyFields/model.Field[3]"/>
+              <model.Field>
+                <name>SafetyDocument</name>
+                <label>Field5</label>
+                <data> </data>
+                <type> </type>
+              </model.Field>
+              <model.Field reference="../../transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/hiddenFields/model.Field"/>
+              <model.Field reference="../../transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/hiddenFields/model.Field[2]"/>
+            </hiddenFields>
+            <denyModifyFields>
+              <model.Field reference="../../transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/denyModifyFields/model.Field"/>
+              <model.Field reference="../../transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/denyModifyFields/model.Field[2]"/>
+              <model.Field reference="../../transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/denyModifyFields/model.Field[3]"/>
+              <model.Field reference="../../transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/mandatoryFields/model.Field[3]"/>
+            </denyModifyFields>
+          </toState>
+        </model.TransitionState>
+      </transitions>
+      <mandatoryFields/>
+      <hiddenFields>
+        <model.Field reference="../../transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/denyModifyFields/model.Field[2]"/>
+        <model.Field reference="../../transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/denyModifyFields/model.Field[3]"/>
+        <model.Field reference="../../transitions/model.TransitionState/toState/hiddenFields/model.Field[3]"/>
+        <model.Field reference="../../transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/hiddenFields/model.Field"/>
+        <model.Field reference="../../transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/hiddenFields/model.Field[2]"/>
+      </hiddenFields>
+      <denyModifyFields>
+        <model.Field reference="../../transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/denyModifyFields/model.Field"/>
+        <model.Field reference="../../transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/denyModifyFields/model.Field[2]"/>
+        <model.Field reference="../../transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/denyModifyFields/model.Field[3]"/>
+        <model.Field reference="../../transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/mandatoryFields/model.Field[3]"/>
+      </denyModifyFields>
+    </model.State>
+    <model.State reference="../model.State/transitions/model.TransitionState/toState"/>
+    <model.State reference="../model.State/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState"/>
+    <model.State reference="../model.State/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState"/>
+  </states>
+  <transitions>
+    <model.TransitionState reference="../../states/model.State/transitions/model.TransitionState"/>
+    <model.TransitionState reference="../../states/model.State/transitions/model.TransitionState/toState/transitions/model.TransitionState"/>
+    <model.TransitionState reference="../../states/model.State/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/transitions/model.TransitionState"/>
+  </transitions>
+  <name>AccessPermit</name>
+  <transitionExists>false</transitionExists>
+  <mandatoryFilled>false</mandatoryFilled>
+  <actions>
+    <model.Action>
+      <name>Save</name>
+      <label>Action1</label>
+      <semantika>saveEnabled</semantika>
+    </model.Action>
+    <model.Action>
+      <name>Delete</name>
+      <label>Action2</label>
+      <semantika>deleteEnabled</semantika>
+    </model.Action>
+    <model.Action>
+      <name>Submit</name>
+      <label>Action3</label>
+      <semantika>submitted</semantika>
+    </model.Action>
+    <model.Action>
+      <name>Publish</name>
+      <label>Action4</label>
+      <semantika>published</semantika>
+    </model.Action>
+    <model.Action>
+      <name>Finish</name>
+      <label>Action5</label>
+      <semantika>finall</semantika>
+    </model.Action>
+  </actions>
+  <fields>
+    <model.Field reference="../../states/model.State/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/denyModifyFields/model.Field"/>
+    <model.Field reference="../../states/model.State/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/denyModifyFields/model.Field[2]"/>
+    <model.Field reference="../../states/model.State/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/denyModifyFields/model.Field[3]"/>
+    <model.Field reference="../../states/model.State/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/mandatoryFields/model.Field[3]"/>
+    <model.Field reference="../../states/model.State/transitions/model.TransitionState/toState/hiddenFields/model.Field[3]"/>
+    <model.Field reference="../../states/model.State/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/hiddenFields/model.Field"/>
+    <model.Field reference="../../states/model.State/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/hiddenFields/model.Field[2]"/>
+    <model.Field reference="../../states/model.State/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/mandatoryFields/model.Field"/>
+    <model.Field reference="../../states/model.State/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/mandatoryFields/model.Field[2]"/>
+    <model.Field reference="../../states/model.State/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/denyModifyFields/model.Field[4]"/>
+  </fields>
+  <state reference="../states/model.State"/>
+</model.Document>
