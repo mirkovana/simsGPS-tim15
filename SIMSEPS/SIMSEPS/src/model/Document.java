@@ -8,7 +8,9 @@ package model;
 
 import java.util.*;
 
-/** @pdOid d60d5527-b2a0-468d-a591-a3f2fe492bc1 */
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
+@XStreamAlias("DATA")
 public class Document {
    /** @pdOid e8b38823-4baf-4fe9-8f36-fdcb65113f26 */
    private String name;
