@@ -23,16 +23,16 @@ public class ReadXML {
 		Action action3 = new Action("Submit", "Action3", Semantika.submitted);
 		Action action4 = new Action("Publish", "Action4", Semantika.published);
 		Action action5 = new Action("Finish", "Action5", Semantika.finall);
-		Field field1 = new Field("Status", "Field1", " ", " ");
-		Field field2 = new Field("Name", "Field2", " ", " ");
-		Field field3 = new Field("DateTime", "Field3", " ", " ");
-		Field field4 = new Field("Answers", "Field4", " ", " ");
-		Field field5 = new Field("SafetyDocument", "Field5", " ", " ");
-		Field field6 = new Field("PrevState", "Field6", " ", " ");
-		Field field7 = new Field("DenyingReason", "Field7", " ", " ");
-		Field field8 = new Field("Equipment", "Field8", " ", " ");
-		Field field9 = new Field("Points", "Field9", " ", " ");
-		Field field10 = new Field("PhoneNo", "Field10", " ", " ");
+		Field field1 = new Field("Status", "Field1", " ", "CheckBox");
+		Field field2 = new Field("Name", "Field2", " ", "TextField");
+		Field field3 = new Field("DateTime", "Field3", " ", "ComboBox");
+		Field field4 = new Field("Answers", "Field4", " ", "TextField");
+		Field field5 = new Field("SafetyDocument", "Field5", " ", "TextField");
+		Field field6 = new Field("PrevState", "Field6", " ", "TextField");
+		Field field7 = new Field("DenyingReason", "Field7", " ", "TextField");
+		Field field8 = new Field("Equipment", "Field8", " ", "CheckBox");
+		Field field9 = new Field("Points", "Field9", " ", "ComboBox");
+		Field field10 = new Field("PhoneNo", "Field10", " ", "TextField");
 		
 		ArrayList<Field> mand1 = new ArrayList<>();
 		ArrayList<Field> hid1 = new ArrayList<>();
@@ -48,6 +48,7 @@ public class ReadXML {
 		den1.add(field4);
 		ArrayList<Semantika> sem1 = new ArrayList<>();
 		sem1.add(Semantika.init);
+		sem1.add(Semantika.submitted);
 		sem1.add(Semantika.saveEnabled);
 		sem1.add(Semantika.deleteEnabled);
 		State state1 = new State("1", "Init", sem1, mand1, hid1, den1);
@@ -103,11 +104,11 @@ public class ReadXML {
 		ArrayList<Semantika> sem4 = new ArrayList<>();
 		sem4.add(Semantika.saveEnabled);
 		sem4.add(Semantika.finall);
-		State state4 = new State("4", "Final", sem4, mand4, hid4, den4);
+		State state4 = new State("4", "Finall", sem4, mand4, hid4, den4);
 		
-		TransitionState trans1 = new TransitionState("1", "Init to Submit", Semantika.submitted, state1, state2);
-		TransitionState trans2 = new TransitionState("2", "Submit to Publish", Semantika.published, state2, state3);
-		TransitionState trans3 = new TransitionState("3", "Publish to Finish", Semantika.finall, state3, state4);
+		TransitionState trans1 = new TransitionState("1", "Init to Submit", action3, state1, state2);
+		TransitionState trans2 = new TransitionState("2", "Submit to Publish", action4, state2, state3);
+		TransitionState trans3 = new TransitionState("3", "Publish to Finish", action5, state3, state4);
 		
 		state1.transitions.add(trans1);
 		state2.transitions.add(trans2);
@@ -141,6 +142,11 @@ public class ReadXML {
 		akcije.add(action4);
 		akcije.add(action5);
 		Document doc = new Document(stanja, tranzicije, "AccessPermit", false, false, akcije, polja, state1);
+		
+		state1.document = doc;
+		state2.document = doc;
+		state3.document = doc;
+		state4.document = doc;
 		
 		XStream xstream = new XStream();
 		String dataXML = xstream.toXML(doc);

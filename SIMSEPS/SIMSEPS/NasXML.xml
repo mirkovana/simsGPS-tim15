@@ -5,14 +5,20 @@
       <name>Init</name>
       <semantike>
         <enumType.Semantika>init</enumType.Semantika>
+        <enumType.Semantika>submitted</enumType.Semantika>
         <enumType.Semantika>saveEnabled</enumType.Semantika>
         <enumType.Semantika>deleteEnabled</enumType.Semantika>
       </semantike>
+      <document reference="../../.."/>
       <transitions>
         <model.TransitionState>
           <id>1</id>
           <label>Init to Submit</label>
-          <semantika>submitted</semantika>
+          <akcija>
+            <name>Submit</name>
+            <label>Action3</label>
+            <semantika>submitted</semantika>
+          </akcija>
           <fromState reference="../../.."/>
           <toState>
             <id>2</id>
@@ -22,11 +28,16 @@
               <enumType.Semantika>submitted</enumType.Semantika>
               <enumType.Semantika>published</enumType.Semantika>
             </semantike>
+            <document reference="../../../../../.."/>
             <transitions>
               <model.TransitionState>
                 <id>2</id>
                 <label>Submit to Publish</label>
-                <semantika>published</semantika>
+                <akcija>
+                  <name>Publish</name>
+                  <label>Action4</label>
+                  <semantika>published</semantika>
+                </akcija>
                 <fromState reference="../../.."/>
                 <toState>
                   <id>3</id>
@@ -36,19 +47,25 @@
                     <enumType.Semantika>published</enumType.Semantika>
                     <enumType.Semantika>finall</enumType.Semantika>
                   </semantike>
+                  <document reference="../../../../../../../../.."/>
                   <transitions>
                     <model.TransitionState>
                       <id>3</id>
                       <label>Publish to Finish</label>
-                      <semantika>finall</semantika>
+                      <akcija>
+                        <name>Finish</name>
+                        <label>Action5</label>
+                        <semantika>finall</semantika>
+                      </akcija>
                       <fromState reference="../../.."/>
                       <toState>
                         <id>4</id>
-                        <name>Final</name>
+                        <name>Finall</name>
                         <semantike>
                           <enumType.Semantika>saveEnabled</enumType.Semantika>
                           <enumType.Semantika>finall</enumType.Semantika>
                         </semantike>
+                        <document reference="../../../../../../../../../../../.."/>
                         <transitions>
                           <null/>
                         </transitions>
@@ -57,19 +74,19 @@
                             <name>Equipment</name>
                             <label>Field8</label>
                             <data> </data>
-                            <type> </type>
+                            <type>CheckBox</type>
                           </model.Field>
                           <model.Field>
                             <name>Points</name>
                             <label>Field9</label>
                             <data> </data>
-                            <type> </type>
+                            <type>ComboBox</type>
                           </model.Field>
                           <model.Field>
                             <name>Answers</name>
                             <label>Field4</label>
                             <data> </data>
-                            <type> </type>
+                            <type>TextField</type>
                           </model.Field>
                         </mandatoryFields>
                         <hiddenFields>
@@ -77,13 +94,13 @@
                             <name>PrevState</name>
                             <label>Field6</label>
                             <data> </data>
-                            <type> </type>
+                            <type>TextField</type>
                           </model.Field>
                           <model.Field>
                             <name>DenyingReason</name>
                             <label>Field7</label>
                             <data> </data>
-                            <type> </type>
+                            <type>TextField</type>
                           </model.Field>
                         </hiddenFields>
                         <denyModifyFields>
@@ -91,25 +108,25 @@
                             <name>Status</name>
                             <label>Field1</label>
                             <data> </data>
-                            <type> </type>
+                            <type>CheckBox</type>
                           </model.Field>
                           <model.Field>
                             <name>Name</name>
                             <label>Field2</label>
                             <data> </data>
-                            <type> </type>
+                            <type>TextField</type>
                           </model.Field>
                           <model.Field>
                             <name>DateTime</name>
                             <label>Field3</label>
                             <data> </data>
-                            <type> </type>
+                            <type>ComboBox</type>
                           </model.Field>
                           <model.Field>
                             <name>PhoneNo</name>
                             <label>Field10</label>
                             <data> </data>
-                            <type> </type>
+                            <type>TextField</type>
                           </model.Field>
                         </denyModifyFields>
                       </toState>
@@ -142,7 +159,7 @@
                 <name>SafetyDocument</name>
                 <label>Field5</label>
                 <data> </data>
-                <type> </type>
+                <type>TextField</type>
               </model.Field>
               <model.Field reference="../../transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/hiddenFields/model.Field"/>
               <model.Field reference="../../transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/hiddenFields/model.Field[2]"/>
@@ -194,21 +211,9 @@
       <label>Action2</label>
       <semantika>deleteEnabled</semantika>
     </model.Action>
-    <model.Action>
-      <name>Submit</name>
-      <label>Action3</label>
-      <semantika>submitted</semantika>
-    </model.Action>
-    <model.Action>
-      <name>Publish</name>
-      <label>Action4</label>
-      <semantika>published</semantika>
-    </model.Action>
-    <model.Action>
-      <name>Finish</name>
-      <label>Action5</label>
-      <semantika>finall</semantika>
-    </model.Action>
+    <model.Action reference="../../states/model.State/transitions/model.TransitionState/akcija"/>
+    <model.Action reference="../../states/model.State/transitions/model.TransitionState/toState/transitions/model.TransitionState/akcija"/>
+    <model.Action reference="../../states/model.State/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/transitions/model.TransitionState/akcija"/>
   </actions>
   <fields>
     <model.Field reference="../../states/model.State/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/denyModifyFields/model.Field"/>

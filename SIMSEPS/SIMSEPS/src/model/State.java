@@ -14,240 +14,314 @@ import com.thoughtworks.xstream.annotations.XStreamImplicit;
 
 import enumType.Semantika;
 
-//@XStreamAlias("State")
-public class State {
-   //@XStreamAlias("entityId")
-   //@XStreamAsAttribute
-   private String id;
-   //@XStreamAlias("DISPLAY_NAME")
-   private String name;
-   //@XStreamImplicit(itemFieldName = "STATE_SEMANTIC")
-   private ArrayList<Semantika> semantike;
-   
-   public Document document;
-   
-   //@XStreamImplicit(itemFieldName = "Transitions")
-   public java.util.ArrayList<TransitionState> transitions = new ArrayList<>();
-   //@XStreamImplicit(itemFieldName = "STATE_MANDATORY_FIELDS")
-   public java.util.ArrayList<Field> mandatoryFields = new ArrayList<>();
-   //@XStreamImplicit(itemFieldName = "STATE_HIDE_FIELDS")
-   public java.util.ArrayList<Field> hiddenFields = new ArrayList<>();
-   //@XStreamImplicit(itemFieldName = "STATE_DENY_MODIFYING_FIELDS")
-   public java.util.ArrayList<Field> denyModifyFields = new ArrayList<>();
-   
-   public State(String id, String name, ArrayList<Semantika> semantike,
-		   ArrayList<Field> mandatoryFields, ArrayList<Field> hiddenFields, ArrayList<Field> denyModifyFields) {
-	super();
-	this.id = id;
-	this.name = name;
-	this.semantike = semantike;
-	this.mandatoryFields = mandatoryFields;
-	this.hiddenFields = hiddenFields;
-	this.denyModifyFields = denyModifyFields;
-}
 
-/** @pdOid ee5def9e-9700-4a0a-a1df-0239be542221 */
-   public void entry() {
-      // TODO: implement
-   }
-   
-   /** @pdOid 6265f620-fc8f-4b20-8bf3-63186ca17545 */
-   public void pushButton() {
-      // TODO: implement
-   }
-   
-   
-   /** @pdGenerated default getter */
-   public java.util.List<TransitionState> getTransitions() {
-      if (transitions == null)
-         transitions = new java.util.ArrayList<TransitionState>();
-      return transitions;
-   }
-   
-   /** @pdGenerated default iterator getter */
-   public java.util.Iterator getIteratorTransitions() {
-      if (transitions == null)
-         transitions = new java.util.ArrayList<TransitionState>();
-      return transitions.iterator();
-   }
-   
-   /** @pdGenerated default setter
-     * @param newTransitions */
-   public void setTransitions(java.util.List<TransitionState> newTransitions) {
-      removeAllTransitions();
-      for (java.util.Iterator iter = newTransitions.iterator(); iter.hasNext();)
-         addTransitionsState((TransitionState)iter.next());
-   }
-   
-   /** @pdGenerated default add
-     * @param newTransition */
-   public void addTransitionsState(TransitionState newTransition) {
-      if (newTransition == null)
-         return;
-      if (this.transitions == null)
-         this.transitions = new java.util.ArrayList<TransitionState>();
-      if (!this.transitions.contains(newTransition))
-         this.transitions.add(newTransition);
-   }
-   
-   /** @pdGenerated default remove
-     * @param oldTransition */
-   public void removeTransitions(TransitionState oldTransition) {
-      if (oldTransition == null)
-         return;
-      if (this.transitions != null)
-         if (this.transitions.contains(oldTransition))
-            this.transitions.remove(oldTransition);
-   }
-   
-   /** @pdGenerated default removeAll */
-   public void removeAllTransitions() {
-      if (transitions != null)
-         transitions.clear();
-   }
-   /** @pdGenerated default getter */
-   public java.util.List<Field> getMandatoryFields() {
-      if (mandatoryFields == null)
-         mandatoryFields = new java.util.ArrayList<Field>();
-      return mandatoryFields;
-   }
-   
-   /** @pdGenerated default iterator getter */
-   public java.util.Iterator getIteratorMandatoryFields() {
-      if (mandatoryFields == null)
-         mandatoryFields = new java.util.ArrayList<Field>();
-      return mandatoryFields.iterator();
-   }
-   
-   /** @pdGenerated default setter
-     * @param newMandatory fields */
-   public void setMandatoryFields(java.util.List<Field> newMandatoryFields) {
-      removeAllMandatoryFields();
-      for (java.util.Iterator iter = newMandatoryFields.iterator(); iter.hasNext();)
-         addMandatoryFields((Field)iter.next());
-   }
-   
-   /** @pdGenerated default add
-     * @param newField */
-   public void addMandatoryFields(Field newField) {
-      if (newField == null)
-         return;
-      if (this.mandatoryFields == null)
-         this.mandatoryFields = new java.util.ArrayList<Field>();
-      if (!this.mandatoryFields.contains(newField))
-         this.mandatoryFields.add(newField);
-   }
-   
-   /** @pdGenerated default remove
-     * @param oldField */
-   public void removeMandatoryFields(Field oldField) {
-      if (oldField == null)
-         return;
-      if (this.mandatoryFields != null)
-         if (this.mandatoryFields.contains(oldField))
-            this.mandatoryFields.remove(oldField);
-   }
-   
-   /** @pdGenerated default removeAll */
-   public void removeAllMandatoryFields() {
-      if (mandatoryFields != null)
-         mandatoryFields.clear();
-   }
-   /** @pdGenerated default getter */
-   public java.util.List<Field> getHiddenFields() {
-      if (hiddenFields == null)
-         hiddenFields = new java.util.ArrayList<Field>();
-      return hiddenFields;
-   }
-   
-   /** @pdGenerated default iterator getter */
-   public java.util.Iterator getIteratorHiddenFields() {
-      if (hiddenFields == null)
-         hiddenFields = new java.util.ArrayList<Field>();
-      return hiddenFields.iterator();
-   }
-   
-   /** @pdGenerated default setter
-     * @param newHiddenFields */
-   public void setHiddenFields(java.util.List<Field> newHiddenFields) {
-      removeAllHiddenFields();
-      for (java.util.Iterator iter = newHiddenFields.iterator(); iter.hasNext();)
-         addHiddenFields((Field)iter.next());
-   }
-   
-   /** @pdGenerated default add
-     * @param newField */
-   public void addHiddenFields(Field newField) {
-      if (newField == null)
-         return;
-      if (this.hiddenFields == null)
-         this.hiddenFields = new java.util.ArrayList<Field>();
-      if (!this.hiddenFields.contains(newField))
-         this.hiddenFields.add(newField);
-   }
-   
-   /** @pdGenerated default remove
-     * @param oldField */
-   public void removeHiddenFields(Field oldField) {
-      if (oldField == null)
-         return;
-      if (this.hiddenFields != null)
-         if (this.hiddenFields.contains(oldField))
-            this.hiddenFields.remove(oldField);
-   }
-   
-   /** @pdGenerated default removeAll */
-   public void removeAllHiddenFields() {
-      if (hiddenFields != null)
-         hiddenFields.clear();
-   }
-   /** @pdGenerated default getter */
-   public java.util.List<Field> getDenyModifyFields() {
-      if (denyModifyFields == null)
-         denyModifyFields = new java.util.ArrayList<Field>();
-      return denyModifyFields;
-   }
-   
-   /** @pdGenerated default iterator getter */
-   public java.util.Iterator getIteratorDenyModifyFields() {
-      if (denyModifyFields == null)
-         denyModifyFields = new java.util.ArrayList<Field>();
-      return denyModifyFields.iterator();
-   }
-   
-   /** @pdGenerated default setter
-     * @param newDenyModifyFields */
-   public void setDenyModifyFields(java.util.List<Field> newDenyModifyFields) {
-      removeAllDenyModifyFields();
-      for (java.util.Iterator iter = newDenyModifyFields.iterator(); iter.hasNext();)
-         addDenyModifyFields((Field)iter.next());
-   }
-   
-   /** @pdGenerated default add
-     * @param newField */
-   public void addDenyModifyFields(Field newField) {
-      if (newField == null)
-         return;
-      if (this.denyModifyFields == null)
-         this.denyModifyFields = new java.util.ArrayList<Field>();
-      if (!this.denyModifyFields.contains(newField))
-         this.denyModifyFields.add(newField);
-   }
-   
-   /** @pdGenerated default remove
-     * @param oldField */
-   public void removeDenyModifyFields(Field oldField) {
-      if (oldField == null)
-         return;
-      if (this.denyModifyFields != null)
-         if (this.denyModifyFields.contains(oldField))
-            this.denyModifyFields.remove(oldField);
-   }
-   
-   /** @pdGenerated default removeAll */
-   public void removeAllDenyModifyFields() {
-      if (denyModifyFields != null)
-         denyModifyFields.clear();
-   }
+public class State {
+
+	private String id;
+
+	private String name;
+
+	private ArrayList<Semantika> semantike;
+
+	public Document document;
+
+	
+	public java.util.ArrayList<TransitionState> transitions = new ArrayList<>();
+	
+	public java.util.ArrayList<Field> mandatoryFields = new ArrayList<>();
+	
+	public java.util.ArrayList<Field> hiddenFields = new ArrayList<>();
+	
+	public java.util.ArrayList<Field> denyModifyFields = new ArrayList<>();
+
+	public State(String id, String name, ArrayList<Semantika> semantike, ArrayList<Field> mandatoryFields,
+			ArrayList<Field> hiddenFields, ArrayList<Field> denyModifyFields) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.semantike = semantike;
+		this.mandatoryFields = mandatoryFields;
+		this.hiddenFields = hiddenFields;
+		this.denyModifyFields = denyModifyFields;
+	}
+
+	/** @pdOid ee5def9e-9700-4a0a-a1df-0239be542221 */
+	public void entry() {
+		// TODO: implement
+	}
+
+	/** @pdOid 6265f620-fc8f-4b20-8bf3-63186ca17545 */
+	public void pushButton() {
+		// TODO: implement
+	}
+
+	/** @pdGenerated default getter */
+	public java.util.List<TransitionState> getTransitions() {
+		if (transitions == null)
+			transitions = new java.util.ArrayList<TransitionState>();
+		return transitions;
+	}
+
+	/** @pdGenerated default iterator getter */
+	public java.util.Iterator getIteratorTransitions() {
+		if (transitions == null)
+			transitions = new java.util.ArrayList<TransitionState>();
+		return transitions.iterator();
+	}
+
+	/**
+	 * @pdGenerated default setter
+	 * @param newTransitions
+	 */
+	public void setTransitions(java.util.List<TransitionState> newTransitions) {
+		removeAllTransitions();
+		for (java.util.Iterator iter = newTransitions.iterator(); iter.hasNext();)
+			addTransitionsState((TransitionState) iter.next());
+	}
+
+	/**
+	 * @pdGenerated default add
+	 * @param newTransition
+	 */
+	public void addTransitionsState(TransitionState newTransition) {
+		if (newTransition == null)
+			return;
+		if (this.transitions == null)
+			this.transitions = new java.util.ArrayList<TransitionState>();
+		if (!this.transitions.contains(newTransition))
+			this.transitions.add(newTransition);
+	}
+
+	/**
+	 * @pdGenerated default remove
+	 * @param oldTransition
+	 */
+	public void removeTransitions(TransitionState oldTransition) {
+		if (oldTransition == null)
+			return;
+		if (this.transitions != null)
+			if (this.transitions.contains(oldTransition))
+				this.transitions.remove(oldTransition);
+	}
+
+	/** @pdGenerated default removeAll */
+	public void removeAllTransitions() {
+		if (transitions != null)
+			transitions.clear();
+	}
+
+	/** @pdGenerated default getter */
+	public java.util.List<Field> getMandatoryFields() {
+		if (mandatoryFields == null)
+			mandatoryFields = new java.util.ArrayList<Field>();
+		return mandatoryFields;
+	}
+
+	/** @pdGenerated default iterator getter */
+	public java.util.Iterator getIteratorMandatoryFields() {
+		if (mandatoryFields == null)
+			mandatoryFields = new java.util.ArrayList<Field>();
+		return mandatoryFields.iterator();
+	}
+
+	/**
+	 * @pdGenerated default setter
+	 * @param newMandatory
+	 *            fields
+	 */
+	public void setMandatoryFields(java.util.List<Field> newMandatoryFields) {
+		removeAllMandatoryFields();
+		for (java.util.Iterator iter = newMandatoryFields.iterator(); iter.hasNext();)
+			addMandatoryFields((Field) iter.next());
+	}
+
+	/**
+	 * @pdGenerated default add
+	 * @param newField
+	 */
+	public void addMandatoryFields(Field newField) {
+		if (newField == null)
+			return;
+		if (this.mandatoryFields == null)
+			this.mandatoryFields = new java.util.ArrayList<Field>();
+		if (!this.mandatoryFields.contains(newField))
+			this.mandatoryFields.add(newField);
+	}
+
+	/**
+	 * @pdGenerated default remove
+	 * @param oldField
+	 */
+	public void removeMandatoryFields(Field oldField) {
+		if (oldField == null)
+			return;
+		if (this.mandatoryFields != null)
+			if (this.mandatoryFields.contains(oldField))
+				this.mandatoryFields.remove(oldField);
+	}
+
+	/** @pdGenerated default removeAll */
+	public void removeAllMandatoryFields() {
+		if (mandatoryFields != null)
+			mandatoryFields.clear();
+	}
+
+	/** @pdGenerated default getter */
+	public java.util.List<Field> getHiddenFields() {
+		if (hiddenFields == null)
+			hiddenFields = new java.util.ArrayList<Field>();
+		return hiddenFields;
+	}
+
+	/** @pdGenerated default iterator getter */
+	public java.util.Iterator getIteratorHiddenFields() {
+		if (hiddenFields == null)
+			hiddenFields = new java.util.ArrayList<Field>();
+		return hiddenFields.iterator();
+	}
+
+	/**
+	 * @pdGenerated default setter
+	 * @param newHiddenFields
+	 */
+	public void setHiddenFields(java.util.List<Field> newHiddenFields) {
+		removeAllHiddenFields();
+		for (java.util.Iterator iter = newHiddenFields.iterator(); iter.hasNext();)
+			addHiddenFields((Field) iter.next());
+	}
+
+	/**
+	 * @pdGenerated default add
+	 * @param newField
+	 */
+	public void addHiddenFields(Field newField) {
+		if (newField == null)
+			return;
+		if (this.hiddenFields == null)
+			this.hiddenFields = new java.util.ArrayList<Field>();
+		if (!this.hiddenFields.contains(newField))
+			this.hiddenFields.add(newField);
+	}
+
+	/**
+	 * @pdGenerated default remove
+	 * @param oldField
+	 */
+	public void removeHiddenFields(Field oldField) {
+		if (oldField == null)
+			return;
+		if (this.hiddenFields != null)
+			if (this.hiddenFields.contains(oldField))
+				this.hiddenFields.remove(oldField);
+	}
+
+	/** @pdGenerated default removeAll */
+	public void removeAllHiddenFields() {
+		if (hiddenFields != null)
+			hiddenFields.clear();
+	}
+
+	/** @pdGenerated default getter */
+	public java.util.List<Field> getDenyModifyFields() {
+		if (denyModifyFields == null)
+			denyModifyFields = new java.util.ArrayList<Field>();
+		return denyModifyFields;
+	}
+
+	/** @pdGenerated default iterator getter */
+	public java.util.Iterator getIteratorDenyModifyFields() {
+		if (denyModifyFields == null)
+			denyModifyFields = new java.util.ArrayList<Field>();
+		return denyModifyFields.iterator();
+	}
+
+	/**
+	 * @pdGenerated default setter
+	 * @param newDenyModifyFields
+	 */
+	public void setDenyModifyFields(java.util.List<Field> newDenyModifyFields) {
+		removeAllDenyModifyFields();
+		for (java.util.Iterator iter = newDenyModifyFields.iterator(); iter.hasNext();)
+			addDenyModifyFields((Field) iter.next());
+	}
+
+	/**
+	 * @pdGenerated default add
+	 * @param newField
+	 */
+	public void addDenyModifyFields(Field newField) {
+		if (newField == null)
+			return;
+		if (this.denyModifyFields == null)
+			this.denyModifyFields = new java.util.ArrayList<Field>();
+		if (!this.denyModifyFields.contains(newField))
+			this.denyModifyFields.add(newField);
+	}
+
+	/**
+	 * @pdGenerated default remove
+	 * @param oldField
+	 */
+	public void removeDenyModifyFields(Field oldField) {
+		if (oldField == null)
+			return;
+		if (this.denyModifyFields != null)
+			if (this.denyModifyFields.contains(oldField))
+				this.denyModifyFields.remove(oldField);
+	}
+
+	/** @pdGenerated default removeAll */
+	public void removeAllDenyModifyFields() {
+		if (denyModifyFields != null)
+			denyModifyFields.clear();
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public ArrayList<Semantika> getSemantike() {
+		return semantike;
+	}
+
+	public void setSemantike(ArrayList<Semantika> semantike) {
+		this.semantike = semantike;
+	}
+
+	public Document getDocument() {
+		return document;
+	}
+
+	public void setDocument(Document document) {
+		this.document = document;
+	}
+
+	public void setTransitions(java.util.ArrayList<TransitionState> transitions) {
+		this.transitions = transitions;
+	}
+
+	public void setMandatoryFields(java.util.ArrayList<Field> mandatoryFields) {
+		this.mandatoryFields = mandatoryFields;
+	}
+
+	public void setHiddenFields(java.util.ArrayList<Field> hiddenFields) {
+		this.hiddenFields = hiddenFields;
+	}
+
+	public void setDenyModifyFields(java.util.ArrayList<Field> denyModifyFields) {
+		this.denyModifyFields = denyModifyFields;
+	}
 
 }

@@ -13,26 +13,66 @@ import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 
 import enumType.Semantika;
 
-//@XStreamAlias("Transition")
+
 public class TransitionState {
-   //@XStreamAlias("entityId")
-   //@XStreamAsAttribute
+
    private String id;
-   //@XStreamAlias("LIFECYCLE_NAME")
+
    private String label;
   
-   private Semantika semantika;
+   private Action akcija;
    
-   //@XStreamAlias("TRANSITION_ON_FAIL")
    public State fromState;
-   //@XStreamAlias("TRANSITION_ON_SUCCEED")
    public State toState;
-   public TransitionState(String id, String label, Semantika semantika, State fromState, State toState) {
+   
+   public TransitionState(String id, String label, Action akcija, State fromState, State toState) {
 	   super();
 	   this.id = id;
 	   this.label = label;
-	   this.semantika = semantika;
+	   this.akcija = akcija;
 	   this.fromState = fromState;
 	   this.toState = toState;
-   } 
+   }
+
+public String getId() {
+	return id;
+}
+
+public void setId(String id) {
+	this.id = id;
+}
+
+public String getLabel() {
+	return label;
+}
+
+public void setLabel(String label) {
+	this.label = label;
+}
+
+public Action getAkcija() {
+	return akcija;
+}
+
+public void setAkcija(Action akcija) {
+	this.akcija = akcija;
+}
+
+public State getFromState() {
+	return fromState;
+}
+
+public void setFromState(State fromState) {
+	this.fromState = fromState;
+}
+
+public State getToState() {
+	return toState;
+}
+
+public void setToState(State toState) {
+	this.toState = toState;
+} 
+   
+   
 }

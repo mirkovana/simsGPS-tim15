@@ -11,12 +11,10 @@ import java.util.*;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
 
-//@XStreamAlias("Data")
-public class Document {
-	// @XStreamImplicit(itemFieldName = "state")
-	public java.util.List<State> states = new ArrayList<>();
 
-	// @XStreamImplicit(itemFieldName = "transition")
+public class Document {
+
+	public java.util.List<State> states = new ArrayList<>();
 	public java.util.List<TransitionState> transitions = new ArrayList<>();
 
 	private String name = "AccessPermit";
@@ -45,7 +43,7 @@ public class Document {
 	 * @pdOid b7b81ce6-daac-4d10-a6d9-705b63b3969e
 	 */
 	public void changeState(State state) {
-		// TODO: implement
+		this.state = state;
 	}
 
 	/** @pdOid 8d4e7e58-f9ae-4b0c-805f-eec63a9cd54a */
