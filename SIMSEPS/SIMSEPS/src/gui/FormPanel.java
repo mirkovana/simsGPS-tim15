@@ -109,10 +109,16 @@ public class FormPanel extends JDialog {
 	public void showField() {
 		int i = 0, j = 0;
 		
+		/**************DENYMODIFY******************/
 		cs.fill = GridBagConstraints.HORIZONTAL;
 		String[] comboBoxContent = new String[15];
 		String[] checkBoxContent;
 		System.out.println(stanje.getName());
+		
+		
+		
+		/**************DENYMODIFY******************/
+
 		boolean found = false;
 		for (Field f : stanje.denyModifyFields) {
 			found = false;
@@ -122,7 +128,13 @@ public class FormPanel extends JDialog {
 					break;
 				}
 
+				
 			}
+			for (Field f2 : stanje.mandatoryFields) {
+				if (f.equals(f2)) {
+					found = true;
+					break;
+				}}
 			if (found == false) {
 				i = 0;
 				
@@ -137,7 +149,8 @@ public class FormPanel extends JDialog {
 					cs.gridx = i;
 					cs.gridy = j;
 					cs.gridwidth = 3;
-					panel.add(new JTextField(20), cs);
+					JTextField jtf = new JTextField(20);
+					panel.add(jtf, cs);
 					j++;
 					j++;
 				}
@@ -158,7 +171,8 @@ public class FormPanel extends JDialog {
 						cs.gridx = i;
 						cs.gridy = j;
 						cs.gridwidth = 3;
-						panel.add(new JComboBox(comboBoxContent), cs);
+						JComboBox comB = new JComboBox(comboBoxContent);
+						panel.add(comB, cs);
 						j++;
 					}
 					if (f.getName().equalsIgnoreCase("Points")) {
@@ -167,7 +181,8 @@ public class FormPanel extends JDialog {
 						cs.gridx = i;
 						cs.gridy = j;
 						cs.gridwidth = 1;
-						panel.add(new JComboBox(comboBoxContent), cs);
+						JComboBox comB = new JComboBox(comboBoxContent);
+						panel.add(comB, cs);
 						j++;
 					}
 				}
@@ -198,7 +213,7 @@ public class FormPanel extends JDialog {
 						j++;
 					}
 					if (f.getName().equalsIgnoreCase("equipment")) {
-						//checkBoxContent = new String[] { "Kabl", "Dizalica", "Merdevine" };
+						
 						cs.gridx = i;
 						cs.gridy = j;
 						cs.gridwidth = 1;
@@ -212,44 +227,42 @@ public class FormPanel extends JDialog {
 						cs.gridwidth = 1;
 						panel.add(new JCheckBox("Merdevine"), cs);
 						j++;
-						/*panel.add(new JCheckBox("Kabl"), cs);
-						panel.add(new JCheckBox("Dizalica"), cs);
-						panel.add(new JCheckBox("Merdevine"), cs);
-						j++;*/
+						
 					}
 				}
 			}
 		}
 
 		panel.setBorder(new LineBorder(Color.GRAY));
+		
+		
+		/*****************MANDATORYFIELDS***********/
 		boolean found1 = false;
 		for (Field fi : stanje.mandatoryFields) {
 			found1 = false;
-			for (Field dm : stanje.denyModifyFields) {
-				if (fi.equals(dm)) {
-					found1 = true;
-					break;
-				}}
-			if (found == false) {
+			
+			if (found1 == false) {
 			i = 0;
 			if (fi.getType().equalsIgnoreCase("textField")) {
 				cs.gridx = i;
 				cs.gridy = j;
 				cs.gridwidth = 1;
-				panel.add(new JLabel(fi.getName() + "           "), cs);
+				panel.add(new JLabel(fi.getName() + "*           "), cs);
 
 				i++;
 				cs.gridx = i;
 				cs.gridy = j;
 				cs.gridwidth = 3;
-				panel.add(new JTextField(20), cs);
+				JTextField jtf = new JTextField(20);
+				panel.add(jtf, cs);
+				
 				j++;
 			}
 			if (fi.getType().equalsIgnoreCase("ComboBox")) {
 				cs.gridx = i;
 				cs.gridy = j;
 				cs.gridwidth = 1;
-				panel.add(new JLabel(fi.getName() + "       "), cs);
+				panel.add(new JLabel(fi.getName() + "*       "), cs);
 				i++;
 
 				if (fi.getName().equalsIgnoreCase("DateTime")) {
@@ -258,7 +271,8 @@ public class FormPanel extends JDialog {
 					cs.gridx = i;
 					cs.gridy = j;
 					cs.gridwidth = 1;
-					panel.add(new JComboBox(comboBoxContent), cs);
+					JComboBox comB = new JComboBox(comboBoxContent);
+					panel.add(comB, cs);
 					j++;
 				}
 				if (fi.getName().equalsIgnoreCase("Points")) {
@@ -267,7 +281,8 @@ public class FormPanel extends JDialog {
 					cs.gridx = i;
 					cs.gridy = j;
 					cs.gridwidth = 1;
-					panel.add(new JComboBox(comboBoxContent), cs);
+					JComboBox comB = new JComboBox(comboBoxContent);
+					panel.add(comB, cs);
 					j++;
 				}
 			}
@@ -275,7 +290,7 @@ public class FormPanel extends JDialog {
 				cs.gridx = i;
 				cs.gridy = j;
 				cs.gridwidth = 1;
-				panel.add(new JLabel(fi.getName() + "   "), cs);
+				panel.add(new JLabel(fi.getName() + "*   "), cs);
 				i++;
 
 				if (fi.getName().equalsIgnoreCase("status")) {
@@ -297,14 +312,7 @@ public class FormPanel extends JDialog {
 					j++;
 				}
 				if (fi.getName().equalsIgnoreCase("equipment")) {
-					/*checkBoxContent = new String[] { "Kabl", "Dizalica", "Merdevine" };
-					cs.gridx = i;
-					cs.gridy = j;
-					cs.gridwidth = 1;
-					panel.add(new JCheckBox("Kabl"), cs);
-					panel.add(new JCheckBox("Dizalica"), cs);
-					panel.add(new JCheckBox("Merdevine"), cs);
-					j++;*/
+					
 					cs.gridx = i;
 					cs.gridy = j;
 					cs.gridwidth = 1;
@@ -364,7 +372,7 @@ public class FormPanel extends JDialog {
 				System.out.println("izasgfdso");
 				stanje.getDocument().changeState(t.toState);
 				panel.removeAll();
-				
+				bp.removeAll();
 				stanje = t.toState;
 				this.setTitle("Forma stanja-" + stanje.getName());
 				return true;
