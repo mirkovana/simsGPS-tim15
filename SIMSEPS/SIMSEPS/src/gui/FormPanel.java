@@ -150,7 +150,18 @@ public class FormPanel extends JDialog {
 					cs.gridy = j;
 					cs.gridwidth = 3;
 					JTextField jtf = new JTextField(20);
-					jtf.setText("Neki tekst");
+					//jtf.setText("Neki tekst");
+					jtf.setEditable(false);
+					
+					if (f.getName().equalsIgnoreCase("Name")) {
+						jtf.setText("Name");
+					}
+					if (f.getName().equalsIgnoreCase("Answers")) {
+						jtf.setText("Answers");
+					}
+					if (f.getName().equalsIgnoreCase("PhoneNo")) {
+						jtf.setText("0685214569");
+					}
 					
 					panel.add(jtf, cs);
 					j++;
@@ -168,7 +179,7 @@ public class FormPanel extends JDialog {
 					i++;
 
 					if (f.getName().equalsIgnoreCase("DateTime")) {
-						comboBoxContent = new String[] { "10.09.2019.", "11.09.2019.", "12.09.2019." };
+						comboBoxContent = new String[] { "10.09.2019." };
 
 						cs.gridx = i;
 						cs.gridy = j;
@@ -178,7 +189,7 @@ public class FormPanel extends JDialog {
 						j++;
 					}
 					if (f.getName().equalsIgnoreCase("Points")) {
-						comboBoxContent=new String[] {"1","2","3","4","5","6","7","8","9"};
+						comboBoxContent=new String[] {"9"};
 
 						cs.gridx = i;
 						cs.gridy = j;
@@ -197,21 +208,28 @@ public class FormPanel extends JDialog {
 					cs.gridy = j;
 					cs.gridwidth = 1;
 					panel.add(new JLabel(f.getName() + "   "), cs);
-					i=i+1;
+					i=i+1;					
 
 					if (f.getName().equalsIgnoreCase("status")) {
 						cs.gridx = i;
 						cs.gridy = j;
 						cs.gridwidth = 1;
-						panel.add(new JCheckBox("Neodredjeno"), cs);
+						JCheckBox jcb1 = new JCheckBox("Neodredjeno");
+						jcb1.setSelected(true);
+						jcb1.setEnabled(false);
+						panel.add(jcb1, cs);
 						cs.gridx = i + 1;
 						cs.gridy = j;
 						cs.gridwidth = 1;
-						panel.add(new JCheckBox("Uspesno"), cs);
+						JCheckBox jcb2 = new JCheckBox("Uspesno");
+						jcb2.setEnabled(false);
+						panel.add(jcb2, cs);
 						cs.gridx = i + 2;
 						cs.gridy = j;
 						cs.gridwidth = 1;
-						panel.add(new JCheckBox("Neuspesno"), cs);
+						JCheckBox jcb3 = new JCheckBox("Neuspesno");
+						jcb3.setEnabled(false);
+						panel.add(jcb3, cs);
 						j++;
 					}
 					if (f.getName().equalsIgnoreCase("equipment")) {
@@ -219,15 +237,22 @@ public class FormPanel extends JDialog {
 						cs.gridx = i;
 						cs.gridy = j;
 						cs.gridwidth = 1;
-						panel.add(new JCheckBox("Kabl"), cs);
+						JCheckBox jcb1 = new JCheckBox("Kabl");
+						jcb1.setEnabled(false);
+						panel.add(jcb1, cs);
 						cs.gridx = i + 1;
 						cs.gridy = j;
 						cs.gridwidth = 1;
-						panel.add(new JCheckBox("Dizalica"), cs);
+						JCheckBox jcb2 = new JCheckBox("Dizalica");
+						jcb2.setEnabled(false);
+						panel.add(jcb2, cs);
 						cs.gridx = i + 2;
 						cs.gridy = j;
 						cs.gridwidth = 1;
-						panel.add(new JCheckBox("Merdevine"), cs);
+						JCheckBox jcb3 = new JCheckBox("Merdevine");
+						jcb3.setSelected(true);
+						jcb3.setEnabled(false);
+						panel.add(jcb3, cs);
 						j++;
 						
 					}
