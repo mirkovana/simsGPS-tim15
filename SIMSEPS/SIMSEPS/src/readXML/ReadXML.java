@@ -33,7 +33,7 @@ public class ReadXML {
 		Field field8 = new Field("Equipment", "Field8", " ", "CheckBox");
 		Field field9 = new Field("Points", "Field9", " ", "ComboBox");
 		Field field10 = new Field("PhoneNo", "Field10", " ", "TextField");
-		
+
 		ArrayList<Field> mand1 = new ArrayList<>();
 		ArrayList<Field> hid1 = new ArrayList<>();
 		hid1.add(field2);
@@ -52,7 +52,7 @@ public class ReadXML {
 		sem1.add(Semantika.saveEnabled);
 		sem1.add(Semantika.deleteEnabled);
 		State state1 = new State("1", "Init", sem1, mand1, hid1, den1);
-		
+
 		ArrayList<Field> mand2 = new ArrayList<>();
 		mand2.add(field8);
 		ArrayList<Field> hid2 = new ArrayList<>();
@@ -71,7 +71,7 @@ public class ReadXML {
 		sem2.add(Semantika.submitted);
 		sem2.add(Semantika.published);
 		State state2 = new State("2", "Submitted", sem2, mand2, hid2, den2);
-		
+
 		ArrayList<Field> mand3 = new ArrayList<>();
 		mand3.add(field8);
 		mand3.add(field9);
@@ -82,13 +82,14 @@ public class ReadXML {
 		den3.add(field1);
 		den3.add(field2);
 		den3.add(field3);
+		den3.add(field8);
 		den3.add(field9);
 		ArrayList<Semantika> sem3 = new ArrayList<>();
 		sem3.add(Semantika.saveEnabled);
 		sem3.add(Semantika.published);
 		sem3.add(Semantika.finall);
 		State state3 = new State("3", "Published", sem3, mand3, hid3, den3);
-		
+
 		ArrayList<Field> mand4 = new ArrayList<>();
 		mand4.add(field8);
 		mand4.add(field9);
@@ -100,21 +101,24 @@ public class ReadXML {
 		den4.add(field1);
 		den4.add(field2);
 		den4.add(field3);
+		den4.add(field8);
+		den4.add(field9);
+		den4.add(field4);
 		den4.add(field10);
 		ArrayList<Semantika> sem4 = new ArrayList<>();
 		sem4.add(Semantika.saveEnabled);
 		sem4.add(Semantika.finall);
 		State state4 = new State("4", "Finall", sem4, mand4, hid4, den4);
-		
+
 		TransitionState trans1 = new TransitionState("1", "Init to Submit", action3, state1, state2);
 		TransitionState trans2 = new TransitionState("2", "Submit to Publish", action4, state2, state3);
 		TransitionState trans3 = new TransitionState("3", "Publish to Finish", action5, state3, state4);
-		
+
 		state1.transitions.add(trans1);
 		state2.transitions.add(trans2);
 		state3.transitions.add(trans3);
 		state4.transitions.add(null);
-		
+
 		ArrayList<State> stanja = new ArrayList<>();
 		stanja.add(state1);
 		stanja.add(state2);
@@ -142,24 +146,25 @@ public class ReadXML {
 		akcije.add(action4);
 		akcije.add(action5);
 		Document doc = new Document(stanja, tranzicije, "AccessPermit", false, false, akcije, polja, state1);
-		
+
 		state1.document = doc;
 		state2.document = doc;
 		state3.document = doc;
 		state4.document = doc;
-		
+
 		XStream xstream = new XStream();
 		String dataXML = xstream.toXML(doc);
-		
+
 		String path = "NasXML.xml";
 		BufferedWriter bw = new BufferedWriter(new FileWriter(path));
 		bw.write(dataXML);
 		bw.close();
 	}
+
 	public Document openXML() {
 		XStream xstream1 = new XStream();
 		Object readObject = xstream1.fromXML(new File("./NasXML.xml"));
-		//System.out.println(readObject);
+		// System.out.println(readObject);
 		Document doc = (Document) readObject;
 		return doc;
 	}

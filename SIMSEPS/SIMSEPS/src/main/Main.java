@@ -12,12 +12,12 @@ import model.State;
 import readXML.ReadXML;
 
 public class Main {
-	public static ArrayList<State> stanja;
+	//public static ArrayList<State> stanja;
 	public static Document doc;
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		ReadXML readxml = new ReadXML();
-		readxml.generateXML();
+	//	readxml.generateXML();
 		doc = readxml.openXML();
 		start();
 	}

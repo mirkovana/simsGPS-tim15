@@ -38,92 +38,82 @@ public class Document {
 		this.state = state;
 	}
 
-	/**
-	 * @param state
-	 * @pdOid b7b81ce6-daac-4d10-a6d9-705b63b3969e
-	 */
 	public void changeState(State state) {
 		this.state = state;
 	}
 
-	/** @pdOid 8d4e7e58-f9ae-4b0c-805f-eec63a9cd54a */
+	
 	public void openDoc() {
 		// TODO: implement
 	}
 
-	/** @pdOid 48d0a0d0-bea8-4d02-b2fa-56a701e25fcf */
+	
 	public void pushButton() {
 		// TODO: implement
 	}
 
-	/** @pdOid a8702cd7-d2bf-473e-b52a-071d878006a8 */
+	
 	public void showErrorMessage() {
 		// TODO: implement
 	}
 
-	/** @pdOid 46c2cf46-ec27-4dd4-a964-2fa2d938bc6b */
+	
 	public void save() {
 		// TODO: implement
 	}
 
-	/** @pdOid 2abdd9ed-4395-46da-a7b3-b0d32ac7b42e */
+	
 	public void delete() {
 		// TODO: implement
 	}
 
-	/** @pdOid b6b2d04b-9b82-477d-8b52-82b2ce11aa83 */
+	
 	public void submit() {
 		// TODO: implement
 	}
 
-	/** @pdOid 7e36a200-83d9-42d2-88d9-ecaafca531f6 */
+	
 	public void publish() {
 		// TODO: implement
 	}
 
-	/** @pdOid 3cc09812-9e36-445c-843f-4c1e643bbd3d */
+	
 	public void finnish() {
 		// TODO: implement
 	}
 
-	/** @pdOid af69e7b2-2494-464f-a603-e48b761a28dc */
+	
 	public void updateActions() {
 		// TODO: implement
 	}
 
-	/** @pdOid 85cab743-dc6c-4379-a0d0-b1cc1a430d9b */
+	
 	public void updateFields() {
 		// TODO: implement
 	}
 
-	/** @pdGenerated default getter */
+	
 	public java.util.List<Action> getActions() {
 		if (actions == null)
 			actions = new java.util.ArrayList<Action>();
 		return actions;
 	}
 
-	/** @pdGenerated default iterator getter */
+	
 	public java.util.Iterator getIteratorActions() {
 		if (actions == null)
 			actions = new java.util.ArrayList<Action>();
 		return actions.iterator();
 	}
 
-	/**
-	 * @pdGenerated default setter
-	 * @param newActions
-	 */
+	
 	public void setActions(java.util.List<Action> newActions) {
 		removeAllActions();
 		for (java.util.Iterator iter = newActions.iterator(); iter.hasNext();)
 			addActions((Action) iter.next());
 	}
 
-	/**
-	 * @pdGenerated default add
-	 * @param newAction
-	 */
+	
 	public void addActions(Action newAction) {
 		if (newAction == null)
 			return;
@@ -133,10 +123,7 @@ public class Document {
 			this.actions.add(newAction);
 	}
 
-	/**
-	 * @pdGenerated default remove
-	 * @param oldAction
-	 */
+	
 	public void removeActions(Action oldAction) {
 		if (oldAction == null)
 			return;
@@ -145,40 +132,34 @@ public class Document {
 				this.actions.remove(oldAction);
 	}
 
-	/** @pdGenerated default removeAll */
+	
 	public void removeAllActions() {
 		if (actions != null)
 			actions.clear();
 	}
 
-	/** @pdGenerated default getter */
+	
 	public java.util.List<Field> getFields() {
 		if (fields == null)
 			fields = new java.util.ArrayList<Field>();
 		return fields;
 	}
 
-	/** @pdGenerated default iterator getter */
+	
 	public java.util.Iterator getIteratorFields() {
 		if (fields == null)
 			fields = new java.util.ArrayList<Field>();
 		return fields.iterator();
 	}
 
-	/**
-	 * @pdGenerated default setter
-	 * @param newFields
-	 */
+	
 	public void setFields(java.util.List<Field> newFields) {
 		removeAllFields();
 		for (java.util.Iterator iter = newFields.iterator(); iter.hasNext();)
 			addFields((Field) iter.next());
 	}
 
-	/**
-	 * @pdGenerated default add
-	 * @param newField
-	 */
+	
 	public void addFields(Field newField) {
 		if (newField == null)
 			return;
@@ -188,10 +169,7 @@ public class Document {
 			this.fields.add(newField);
 	}
 
-	/**
-	 * @pdGenerated default remove
-	 * @param oldField
-	 */
+	
 	public void removeFields(Field oldField) {
 		if (oldField == null)
 			return;
@@ -200,7 +178,7 @@ public class Document {
 				this.fields.remove(oldField);
 	}
 
-	/** @pdGenerated default removeAll */
+	
 	public void removeAllFields() {
 		if (fields != null)
 			fields.clear();

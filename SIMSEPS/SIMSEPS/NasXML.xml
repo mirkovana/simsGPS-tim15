@@ -122,6 +122,9 @@
                             <data> </data>
                             <type>ComboBox</type>
                           </model.Field>
+                          <model.Field reference="../../mandatoryFields/model.Field"/>
+                          <model.Field reference="../../mandatoryFields/model.Field[2]"/>
+                          <model.Field reference="../../mandatoryFields/model.Field[3]"/>
                           <model.Field>
                             <name>PhoneNo</name>
                             <label>Field10</label>
@@ -144,6 +147,7 @@
                     <model.Field reference="../../transitions/model.TransitionState/toState/denyModifyFields/model.Field"/>
                     <model.Field reference="../../transitions/model.TransitionState/toState/denyModifyFields/model.Field[2]"/>
                     <model.Field reference="../../transitions/model.TransitionState/toState/denyModifyFields/model.Field[3]"/>
+                    <model.Field reference="../../transitions/model.TransitionState/toState/mandatoryFields/model.Field"/>
                     <model.Field reference="../../transitions/model.TransitionState/toState/mandatoryFields/model.Field[2]"/>
                   </denyModifyFields>
                 </toState>
@@ -225,7 +229,7 @@
     <model.Field reference="../../states/model.State/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/hiddenFields/model.Field[2]"/>
     <model.Field reference="../../states/model.State/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/mandatoryFields/model.Field"/>
     <model.Field reference="../../states/model.State/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/mandatoryFields/model.Field[2]"/>
-    <model.Field reference="../../states/model.State/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/denyModifyFields/model.Field[4]"/>
+    <model.Field reference="../../states/model.State/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/transitions/model.TransitionState/toState/denyModifyFields/model.Field[7]"/>
   </fields>
   <state reference="../states/model.State"/>
 </model.Document>
