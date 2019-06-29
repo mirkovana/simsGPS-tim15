@@ -2,6 +2,7 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Frame;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -27,6 +28,7 @@ public class FormPanel extends JDialog {
 	JPanel bp ;
 	GridBagConstraints cs = new GridBagConstraints();
 	ErrorDialog erd = new ErrorDialog();
+	
 	JButton submit = new JButton("Submit");
 	JButton publish = new JButton("Publish");
 	JButton finish = new JButton("Finish");
@@ -56,12 +58,13 @@ public class FormPanel extends JDialog {
 	}
 
 	public void initialization() {
+		
 		submit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("izasgghao");
+				
 				if (checkIfTransExists(submit.getText(),stanje)) {
 					setVisible(false);
-					System.out.println("izasao");
+					
 					showField();
 					setVisible(true);
 				}
@@ -70,10 +73,10 @@ public class FormPanel extends JDialog {
 		
 		publish.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("izasgghao");
+				
 				if (checkIfTransExists(publish.getText(),stanje)) {
 					setVisible(false);
-					System.out.println("izasao");
+					
 					
 					showField();
 					setVisible(true);
@@ -82,10 +85,10 @@ public class FormPanel extends JDialog {
 		});
 		finish.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("izasgghao");
+				
 				if (checkIfTransExists(finish.getText(),stanje)) {
 					setVisible(false);
-					System.out.println("izasao");
+					
 					showField();
 					setVisible(true);
 				}
@@ -94,14 +97,14 @@ public class FormPanel extends JDialog {
 		
 		save.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("izasgghao");
+				
 				
 			}
 		});
 		
 		delete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("izasgghao");
+				
 				
 			}
 		});
@@ -109,7 +112,7 @@ public class FormPanel extends JDialog {
 	public void showField() {
 		int i = 0, j = 0;
 		
-		/**************DENYMODIFY******************/
+		
 		cs.fill = GridBagConstraints.HORIZONTAL;
 		String[] comboBoxContent = new String[15];
 		String[] checkBoxContent;
@@ -130,15 +133,12 @@ public class FormPanel extends JDialog {
 
 				
 			}
-			for (Field f2 : stanje.mandatoryFields) {
-				if (f.equals(f2)) {
-					found = true;
-					break;
-				}}
+			
 			if (found == false) {
 				i = 0;
-				
+			
 				/*************************TEXTFIELD*********************/
+				
 				if (f.getType().equalsIgnoreCase("textField")) {
 					cs.gridx = i;
 					cs.gridy = j;
@@ -150,6 +150,8 @@ public class FormPanel extends JDialog {
 					cs.gridy = j;
 					cs.gridwidth = 3;
 					JTextField jtf = new JTextField(20);
+					jtf.setText("Neki tekst");
+					
 					panel.add(jtf, cs);
 					j++;
 					j++;
@@ -240,6 +242,11 @@ public class FormPanel extends JDialog {
 		boolean found1 = false;
 		for (Field fi : stanje.mandatoryFields) {
 			found1 = false;
+			for (Field f2 : stanje.denyModifyFields) {
+				if (fi.equals(f2)) {
+					found1 = true;
+					break;
+				}}
 			
 			if (found1 == false) {
 			i = 0;
@@ -369,7 +376,8 @@ public class FormPanel extends JDialog {
 	protected boolean checkIfTransExists(String name,State state) {
 		for(TransitionState t : state.getTransitions()) {
 			if(t.getAkcija().getName().equalsIgnoreCase(name)) {
-				System.out.println("izasgfdso");
+				
+				
 				stanje.getDocument().changeState(t.toState);
 				panel.removeAll();
 				bp.removeAll();

@@ -45,7 +45,7 @@ public class MainWindow extends JFrame {
 		
 	}
 
-	protected boolean checkIfTransExists(String name,State state) {
+	/*protected boolean checkIfTransExists(String name,State state) {
 		for(TransitionState t : state.getTransitions()) {
 			if(t.getAkcija().getName().equalsIgnoreCase(name)) {
 				System.out.println("izasgfdso");
@@ -55,7 +55,7 @@ public class MainWindow extends JFrame {
 			}
 		}
 		return false;
-	}
+	}*/
 
 	public Document getDoc() {
 		return doc;
