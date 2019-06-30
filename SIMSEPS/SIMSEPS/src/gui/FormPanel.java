@@ -1,13 +1,15 @@
 package gui;
 
 import java.awt.BorderLayout;
+import java.awt.Checkbox;
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Frame;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -17,6 +19,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import enumType.Semantika;
 import model.Field;
@@ -26,8 +30,13 @@ import model.TransitionState;
 public class FormPanel extends JDialog {
 	JPanel panel ;
 	JPanel bp ;
+	List<Checkbox> checkboxes = new ArrayList<Checkbox>();
+	int brojac=0;
+	boolean uneto;
 	GridBagConstraints cs = new GridBagConstraints();
 	ErrorDialog erd = new ErrorDialog();
+	MessageDialog msd = new MessageDialog();
+	
 	
 	JButton submit = new JButton("Submit");
 	JButton publish = new JButton("Publish");
@@ -62,6 +71,7 @@ public class FormPanel extends JDialog {
 		submit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				
 				if (checkIfTransExists(submit.getText(),stanje)) {
 					setVisible(false);
 					
@@ -73,6 +83,12 @@ public class FormPanel extends JDialog {
 		
 		publish.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if (uneto == false) {
+					
+					erd.showErrorMandatory();
+					stanje=stanje;
+					return;
+				}
 				
 				if (checkIfTransExists(publish.getText(),stanje)) {
 					setVisible(false);
@@ -97,14 +113,14 @@ public class FormPanel extends JDialog {
 		
 		save.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				msd.saveDialog();
 				
 			}
 		});
 		
 		delete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				msd.deleteDialog();
 				
 			}
 		});
@@ -265,6 +281,7 @@ public class FormPanel extends JDialog {
 		
 		/*****************MANDATORYFIELDS***********/
 		boolean found1 = false;
+		//boolean uneto =true;
 		for (Field fi : stanje.mandatoryFields) {
 			found1 = false;
 			for (Field f2 : stanje.denyModifyFields) {
@@ -344,20 +361,56 @@ public class FormPanel extends JDialog {
 					j++;
 				}
 				if (fi.getName().equalsIgnoreCase("equipment")) {
-					
 					cs.gridx = i;
 					cs.gridy = j;
 					cs.gridwidth = 1;
-					panel.add(new JCheckBox("Kabl"), cs);
+					JCheckBox jcb1 = new JCheckBox("Kabl");
+					
+					panel.add(jcb1, cs);
 					cs.gridx = i + 1;
 					cs.gridy = j;
 					cs.gridwidth = 1;
-					panel.add(new JCheckBox("Dizalica"), cs);
+					JCheckBox jcb2 = new JCheckBox("Dizalica");
+					
+					panel.add(jcb2, cs);
 					cs.gridx = i + 2;
 					cs.gridy = j;
 					cs.gridwidth = 1;
-					panel.add(new JCheckBox("Merdevine"), cs);
+					JCheckBox jcb3 = new JCheckBox("Merdevine");
+					
+					
+					panel.add(jcb3, cs);
+					//boolean uneto =true;
+					 jcb1.addChangeListener(new ChangeListener() {
+
+				            @Override
+				            public void stateChanged(ChangeEvent e) {
+				            	if(jcb1.isSelected())
+				                uneto=true;
+				                
+				            }
+				        });
+					
+					 jcb2.addChangeListener(new ChangeListener() {
+
+				            @Override
+				            public void stateChanged(ChangeEvent e) {
+				            	if(jcb2.isSelected())
+				                uneto=true;
+				                
+				            }
+				        });
+					 jcb3.addChangeListener(new ChangeListener() {
+
+				            @Override
+				            public void stateChanged(ChangeEvent e) {
+				            	if(jcb3.isSelected())
+				                uneto=true;
+				                
+				            }
+				        });
 					j++;
+					
 				}
 			}
 

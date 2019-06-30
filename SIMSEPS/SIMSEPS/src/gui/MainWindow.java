@@ -1,5 +1,6 @@
 package gui;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -24,7 +25,8 @@ public class MainWindow extends JFrame {
 		this.setTitle(doc.getName());
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
-
+		
+	
 		this.setVisible(true);
 
 		JButton b1 = new JButton("NasXml");

@@ -8,5 +8,7 @@ public class ErrorDialog {
 	 final JPanel panel = new JPanel();
 
 	 JOptionPane.showMessageDialog(panel,
-			    "Obavezna polja nisu popunjena!.");
+			    "Obavezna polja nisu uneta.",
+			    "Error Message",
+			    JOptionPane.ERROR_MESSAGE);
 }}
