@@ -360,6 +360,7 @@ public class FormPanel extends JDialog {
 					panel.add(new JCheckBox("Neuspesno"), cs);
 					j++;
 				}
+				//neka izmena
 				if (fi.getName().equalsIgnoreCase("equipment")) {
 					cs.gridx = i;
 					cs.gridy = j;
@@ -390,6 +391,8 @@ public class FormPanel extends JDialog {
 				                
 				            }
 				        });
+					 
+					 
 					
 					 jcb2.addChangeListener(new ChangeListener() {
 
