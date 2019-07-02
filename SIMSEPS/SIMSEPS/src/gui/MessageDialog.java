@@ -8,12 +8,12 @@ public class MessageDialog {
 		 final JPanel panel = new JPanel();
 
 		 JOptionPane.showMessageDialog(panel,
-				    "Uspesno ste sacuvali!.");
+				    "Uspesno ste sacuvali!");
 	}
 	public static void deleteDialog() {
 		 final JPanel panel = new JPanel();
 
 		 JOptionPane.showMessageDialog(panel,
-				    "Uspesno ste obrisali!.");
+				    "Uspesno ste obrisali!");
 	}
 }
