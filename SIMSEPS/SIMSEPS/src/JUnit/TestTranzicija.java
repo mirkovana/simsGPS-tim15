@@ -15,6 +15,7 @@ class TestTranzicija {
 		State state1 = new State("3", "Stanje1", null, null, null, null);
 		State state2 = new State("4", "Stanje2", null, null, null, null);
 		boolean rez = fp.checkIfTransExists(state2.getName(), state1);
+		
 		assertEquals(false, rez);
 			}
 

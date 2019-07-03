@@ -10,6 +10,7 @@ import java.util.List;
 import com.thoughtworks.xstream.*;
 
 import enumType.Semantika;
+
 import model.Action;
 import model.Document;
 import model.Field;
@@ -17,6 +18,7 @@ import model.State;
 import model.TransitionState;
 
 public class ReadXML {
+	ArrayList<State> stanjaCheck = new ArrayList<State>();
 	public void generateXML() throws IOException {
 		Action action1 = new Action("Save", "Action1", Semantika.saveEnabled);
 		Action action2 = new Action("Delete", "Action2", Semantika.deleteEnabled);
@@ -159,6 +161,7 @@ public class ReadXML {
 		BufferedWriter bw = new BufferedWriter(new FileWriter(path));
 		bw.write(dataXML);
 		bw.close();
+		stanjaCheck=stanja;
 	}
 
 	public Document openXML() {
@@ -167,5 +170,20 @@ public class ReadXML {
 		// System.out.println(readObject);
 		Document doc = (Document) readObject;
 		return doc;
+	}
+	
+	public boolean checkIfStateExists(State stanje) {
+		for(State s :stanjaCheck){
+			System.out.println(s.getName());
+				if(s.getName().equalsIgnoreCase(stanje.getName())) {
+					return true;
+
+				}
+				
+				
+			}
+		
+		
+		return false;
 	}
 }

@@ -18,6 +18,7 @@ public class Main {
 		// TODO Auto-generated method stub
 		ReadXML readxml = new ReadXML();
 		readxml.generateXML();
+		
 		doc = readxml.openXML();
 		start();
 	}
