@@ -46,6 +46,11 @@ public class FormPanel extends JDialog {
 
 	public State stanje;
 
+	
+	public FormPanel() {
+		super();
+	}
+
 	public FormPanel(Frame parent, State stanje) {
 		super(parent, "Forma stanja-Init", true);
 		this.stanje = stanje;
@@ -454,7 +459,7 @@ public class FormPanel extends JDialog {
 
 	}
 	
-	protected boolean checkIfTransExists(String name,State state) {
+	public boolean checkIfTransExists(String name,State state) {
 		for(TransitionState t : state.getTransitions()) {
 			if(t.getAkcija().getName().equalsIgnoreCase(name)) {
 				

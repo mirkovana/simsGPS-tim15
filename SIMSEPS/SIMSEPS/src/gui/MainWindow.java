@@ -40,7 +40,7 @@ public class MainWindow extends JFrame {
 		b1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				fp.setVisible(true);
-				System.out.println("izasao");
+				
 			}
 		});
 
